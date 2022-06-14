@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start" class="menu_btn">
+    
+    <ion-back-button color="light" defaultHref="search-chef">
+    	
+    </ion-back-button>
+   
+</ion-buttons>
+ <ion-title>Orders</ion-title>
+
+ <ion-icon name="notifications" slot="end"></ion-icon>
+ <ion-badge id="notifications-badge-msg" color="primary">2</ion-badge>
+
+ <ion-icon name="cart" slot="end"></ion-icon>
+ <ion-badge id="notifications-badge" color="primary">5</ion-badge>
+ <img slot="end"  src="../../assets/2.jpg">
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="top">
+		
+<ion-segment value="upcoming">
+	<ion-segment-button value="upcoming">
+		<ion-label>Upcoming</ion-label>
+
+	
+   </ion-segment-button>
+   <ion-segment-button value="past">
+		<ion-label>Past Orders</ion-label>
+
+	
+   </ion-segment-button>
+
+	
+</ion-segment>
+
+	</div>
+
+</ion-content>

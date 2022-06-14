@@ -1,20 +1,169 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+     <ion-back-button color="light" defaultHref="search-chef">
+        </ion-back-button>
+  </ion-buttons>
+    <ion-title>Filtre</ion-title>
+    <ion-title slot="end" >Restaurer</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+ 
+<div class="upperBox">
+ 	<h3>Type de repas</h3>
+ 	<ion-list>
+ 	  <ion-radio-group (ionChange)="typederepasChange ($event)" [value]="home.type_de_repas">
+ 		    <ion-item>
+ 		     <ion-label>Petit-déjeuner</ion-label>
+ 		      <ion-radio value="Petit-déjeuner"></ion-radio>
+ 		    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+ 		    <ion-item>
+ 		     <ion-label>Dîner</ion-label>
+ 		      <ion-radio value="Dîner"></ion-radio>
+ 		    </ion-item>
+
+ 		     <ion-item>
+ 		     <ion-label>Déjeuner</ion-label>
+ 		      <ion-radio value="Déjeuner"></ion-radio>
+ 		    </ion-item>
+
+ 		     <ion-item>
+ 		     <ion-label>Brunch</ion-label>
+ 		      <ion-radio value="Brunch"></ion-radio>
+ 		    </ion-item>
+
+ 		     <ion-item lines="none">
+ 		     <ion-label>Autre</ion-label>
+ 		      <ion-radio value="Autre"></ion-radio>
+ 		    </ion-item>
+	  </ion-radio-group>
+ 	</ion-list>
+ </div><p></p>
+
+<div class="upperBox">
+ 	<h3>Cuisine</h3>
+ 	 <ion-radio-group (ionChange)="cuisinetypeChange ($event)" [value]="home.cuisine">
+ 	 	<ion-row>
+ 	 	  <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Africaine</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Africaine">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+
+ 	       <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Americaine</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Americaine">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+        <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Asiatique</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Asiatique">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+          <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Chinoise</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Chinoise">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+
+ 	       <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Francaise</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Francaise">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+
+ 	       <ion-col size="6">
+ 	 	  	<ion-item>
+ 	 	<ion-label>Australienne</ion-label>
+ 	 	<ion-radio mode="md" item-left value="Australienne">
+ 	   </ion-radio>
+ 	        </ion-item>
+ 	      </ion-col>
+
+
+ 	    </ion-row>
+
+ 	 </ion-radio-group>
+
+ </div><p></p>
+
+<div class="upperBox">
+ 	<h3>Distance</h3>
+ 	<ion-list lines="none">
+ 		
+ 		<ion-item>
+ 			
+ 		<ion-range (ionChange)="distanceChange ($event)" [value]="home.Distance" min="1" max="20" mode="android" color="danger" [pin]="true"></ion-range>	
+
+ 		<ion-label slot="end">1 Km</ion-label>	
+
+
+ 		</ion-item>
+
+ 	</ion-list>
+ </div>
+
+<div class="upperBox">
+ 	
+ 	<h3>Trier par</h3>
+ 	<ion-list lines="none">
+ 		<ion-item>
+           <ion-label>Le plus populaire</ion-label>
+           <ion-toggle (ionChange)="populaireChange ($event)" [value]="home.populaire" mode="windows"></ion-toggle>
+ 		</ion-item>
+ 		<hr style="border-bottom: 1px solid gray;">
+ 	</ion-list>
+
+ 	<ion-list >
+ 		<ion-radio-group (ionChange)="PrixsurcommandeChange ($event)" [value]="home.Prixsurcommande" >
+ 		<ion-item>
+           <ion-label>Haut en bas</ion-label>
+           <ion-radio mode="ios" value="hautenbas"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+           <ion-label>De bas en haut</ion-label>
+           <ion-radio mode="ios" value="Debasenhaut"></ion-radio>
+        </ion-item>
+ 	    </ion-radio-group>
+ 	</ion-list>
+
+ </div><p></p>
+
+<div class="upperBox">
+ 	<h3>Prix</h3>
+
+ 	<ion-list lines="none">
+ 	  <ion-item>
+ 		<ion-range (ionChange)="prixChange ($event)" [value]="home.prix" min="1" dual-knobs="true" max="20" mode="windows" color="danger" [pin]="true"> 
+ 			<ion-label slot="end">1 à 5</ion-label>
+ 		</ion-range>
+ 	  </ion-item>
+ 	</ion-list>
+</div>
+
+<div class="upperBox">
+	<ion-button expand="block" (click)="home">Appliquer</ion-button>
+</div>	
+ 	
 </ion-content>
+
+
